@@ -11,7 +11,7 @@ const app = new Vue({
       this.bookmarks = res.data.map(bookmark => {
         return {
           href: bookmark.href,
-          description: bookmark.description.replace('constructor', 'constructo r'), // hack around js-search bug, see https://github.com/bvaughn/js-search/issues/15
+          description: bookmark.description,
           tags: bookmark.tags.split(/\s/),
           time: bookmark.time
         }
