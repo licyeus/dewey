@@ -15,15 +15,7 @@
     <input id="query" type="text" class="w-100 f5 pa2" v-model="query" placeholder="Search bookmarks">
 
     <ul class="list f5 pl0 mt3 mb0">
-      <li class="bookmark-li mb2 pa2" v-for="bookmark in visibleBookmarks">
-        <a href="#" class="link blue lh-title">
-          <a :href="bookmark.href" target="_blank" class="fw5 underline-hover">{{ bookmark.description }}</a>
-          <span class="db black-60">{{ bookmark.time | formatTime }}</span>
-          <ul class="list pl0">
-            <li v-for="tag in bookmark.tags" class="dib mr3"><a href="#" class="f6 b db link dim dark-gray">{{ tag }}</a></li>
-          </ul>
-        </a>
-      </li> 
+      <bookmark :data="bookmark" v-for="bookmark in visibleBookmarks" />
     </ul>
   </div>
 
@@ -31,6 +23,17 @@
   <script src="./node_modules/moment/moment.js"></script>
   <script src="./node_modules/js-search/dist/js-search.js"></script>
   <script src="./node_modules/axios/dist/axios.js"></script>
+  <script type="text/x-template" id="bookmark-template">
+    <li class="bookmark-li mb2 pa2">
+      <a href="#" class="link blue lh-title">
+        <a :href="data.href" target="_blank" class="fw5 underline-hover">{{ data.description }}</a>
+        <span class="db black-60">{{ data.time | formatTime }}</span>
+        <ul class="list pl0">
+          <li v-for="tag in data.tags" class="dib mr3"><a href="#" class="f6 b db link dim dark-gray">{{ tag }}</a></li>
+        </ul>
+      </a>
+    </li>
+  </script>
   <script src="./app.js"></script>
 </body>
 </html>

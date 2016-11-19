@@ -30,6 +30,11 @@ const app = new Vue({
       return bookmarks.slice(0, 100)
     }
   },
+})
+
+const bookmark = Vue.component('bookmark', {
+  template: '#bookmark-template',
+  props: ['data'],
   filters: {
     formatTime: function (time) {
       return moment(time).format('MMMM D, YYYY')
