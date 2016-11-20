@@ -32,7 +32,7 @@ const bookmark = Vue.component('bookmark', {
 })
 
 const routes = [
-  { path: '/', component: SearchView },
+  { path: '/search', component: SearchView },
   { path: '/add', component: AddView }
 ]
 const router = new VueRouter({ routes })
