@@ -38,7 +38,11 @@
   </script>
   <script type="text/x-template" id="add-view">
     <div class='add-view'>
-      TODO: add link view
+      <form @submit='saveLink'>
+        <input type="text" v-model="url" placeholder="URL" @blur='loadLinkMetadata' />
+        <input type="text" v-model="title" placeholder="Title" />
+        <button>Save</button>
+      </form>
     </div>
   </script>
   <script type="text/x-template" id="bookmark-template">

@@ -18,7 +18,23 @@ const SearchView = {
 }
 
 const AddView = {
-  template: '#add-view'
+  template: '#add-view',
+  data: function () {
+    return {
+      url: '',
+      title: '',
+      tags: []
+    }
+  },
+  methods: {
+    saveLink: function () {
+      console.log('saveLink', ...arguments, this.url, this.title, this.tags)
+      return false
+    },
+    loadLinkMetadata: function () {
+      console.log('loadLinkMetadata', this.url)
+    }
+  }
 }
 
 const bookmark = Vue.component('bookmark', {
